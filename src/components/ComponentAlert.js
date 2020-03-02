@@ -4,7 +4,6 @@ import {
   View,
   Text,
   StyleSheet,
-  TextInput,
   Image,
   SafeAreaView,
   TouchableOpacity,
@@ -12,7 +11,7 @@ import {
   Alert,
 } from 'react-native';
 
-class component1 extends React.Component {
+class ComponentAlert extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,7 +19,6 @@ class component1 extends React.Component {
       input: ' ',
     };
   }
-  onChangeText() {}
   checkSwitch = id => {
     switch (id) {
       case 1:
@@ -53,14 +51,14 @@ class component1 extends React.Component {
           <TouchableOpacity onPress={() => this.checkSwitch(1)}>
             <Image
               style={{width: 100, height: 100, resizeMode: 'cover'}}
-              source={require('/Users/alokmishra/Documents/demoproject/image.jpeg')}
+              source={require('./resources/images/image.jpeg')}
             />
           </TouchableOpacity>
           <Text style={{fontSize: 40}}>Top </Text>
           <TouchableOpacity onPress={() => this.checkSwitch(2)}>
             <Image
               style={{width: 100, height: 100, resizeMode: 'cover'}}
-              source={require('/Users/alokmishra/Documents/demoproject/image.jpeg')}
+              source={require('./resources/images/image.jpeg')}
             />
           </TouchableOpacity>
         </View>
@@ -92,14 +90,14 @@ class component1 extends React.Component {
           <TouchableOpacity onPress={() => this.checkSwitch(3)}>
             <Image
               style={{width: 100, height: 100, resizeMode: 'cover'}}
-              source={require('/Users/alokmishra/Documents/demoproject/image.jpeg')}
+              source={require('./resources/images/image.jpeg')}
             />
           </TouchableOpacity>
           <Text style={{fontSize: 40}}>Bottom</Text>
           <TouchableOpacity onPress={() => this.checkSwitch(4)}>
             <Image
               style={{width: 100, height: 100, resizeMode: 'cover'}}
-              source={require('/Users/alokmishra/Documents/demoproject/image.jpeg')}
+              source={require('./resources/images/image.jpeg')}
             />
           </TouchableOpacity>
         </View>
@@ -125,4 +123,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default component1;
+export default ComponentAlert;
