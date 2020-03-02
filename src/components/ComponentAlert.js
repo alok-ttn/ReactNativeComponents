@@ -42,34 +42,23 @@ class ComponentAlert extends React.Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
-        <View
-          style={{
-            flex: 1,
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-          }}>
+        <View style={styles.child}>
           <TouchableOpacity onPress={() => this.checkSwitch(1)}>
             <Image
-              style={{width: 100, height: 100, resizeMode: 'cover'}}
+              style={styles.imageformat}
               source={require('./resources/images/image.jpeg')}
             />
           </TouchableOpacity>
-          <Text style={{fontSize: 40}}>Top </Text>
+          <Text style={{fontSize: 40, textAlign: 'center'}}>Top </Text>
           <TouchableOpacity onPress={() => this.checkSwitch(2)}>
             <Image
-              style={{width: 100, height: 100, resizeMode: 'cover'}}
+              style={styles.imageformat}
               source={require('./resources/images/image.jpeg')}
             />
           </TouchableOpacity>
         </View>
 
-        <View
-          style={{
-            flex: 1,
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-          }}>
+        <View style={[styles.child, {alignItems: 'center'}]}>
           <Text style={{fontSize: 40}}>Left</Text>
           <Button
             title="Button"
@@ -80,23 +69,17 @@ class ComponentAlert extends React.Component {
           <Text style={{fontSize: 40}}>Right</Text>
         </View>
 
-        <View
-          style={{
-            flex: 1,
-            flexDirection: 'row',
-            alignItems: 'flex-end',
-            justifyContent: 'space-between',
-          }}>
+        <View style={[styles.child, {alignItems: 'flex-end'}]}>
           <TouchableOpacity onPress={() => this.checkSwitch(3)}>
             <Image
-              style={{width: 100, height: 100, resizeMode: 'cover'}}
+              style={styles.imageformat}
               source={require('./resources/images/image.jpeg')}
             />
           </TouchableOpacity>
           <Text style={{fontSize: 40}}>Bottom</Text>
           <TouchableOpacity onPress={() => this.checkSwitch(4)}>
             <Image
-              style={{width: 100, height: 100, resizeMode: 'cover'}}
+              style={styles.imageformat}
               source={require('./resources/images/image.jpeg')}
             />
           </TouchableOpacity>
@@ -117,10 +100,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   child: {
-    //height: 100,
-    width: '100%',
     flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
+  imageformat: {width: 100, height: 100, resizeMode: 'cover'},
 });
 
 export default ComponentAlert;
