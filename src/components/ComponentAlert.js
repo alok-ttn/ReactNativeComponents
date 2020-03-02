@@ -42,14 +42,17 @@ class ComponentAlert extends React.Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
-        <View style={styles.child}>
+        <View style={[styles.child, {alignItems: 'flex-start'}]}>
           <TouchableOpacity onPress={() => this.checkSwitch(1)}>
             <Image
               style={styles.imageformat}
               source={require('./resources/images/image.jpeg')}
             />
           </TouchableOpacity>
-          <Text style={{fontSize: 40, textAlign: 'center'}}>Top </Text>
+          <Text
+            style={{fontSize: 40, textAlign: 'center', alignSelf: 'center'}}>
+            Top{' '}
+          </Text>
           <TouchableOpacity onPress={() => this.checkSwitch(2)}>
             <Image
               style={styles.imageformat}
@@ -76,7 +79,7 @@ class ComponentAlert extends React.Component {
               source={require('./resources/images/image.jpeg')}
             />
           </TouchableOpacity>
-          <Text style={{fontSize: 40}}>Bottom</Text>
+          <Text style={{fontSize: 40, alignSelf: 'center'}}>Bottom</Text>
           <TouchableOpacity onPress={() => this.checkSwitch(4)}>
             <Image
               style={styles.imageformat}
@@ -98,9 +101,10 @@ const styles = StyleSheet.create({
     flex: 1,
     // alignItems:"flex-end",
     justifyContent: 'center',
+    justifyContent: 'space-between',
   },
   child: {
-    flex: 1,
+    flex: 0.15,
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
