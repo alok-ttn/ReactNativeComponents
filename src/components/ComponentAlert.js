@@ -40,6 +40,7 @@ class ComponentAlert extends React.Component {
   };
 
   render() {
+    const {navigation} = this.props;
     return (
       <SafeAreaView style={styles.container}>
         <View style={[styles.child, {alignItems: 'flex-start'}]}>
@@ -67,7 +68,9 @@ class ComponentAlert extends React.Component {
             title="Button"
             color="#f194ff"
             backgroundColor="#f00"
-            onPress={() => this.checkSwitch(5)}
+            onPress={() => {
+              navigation.navigate('Recharge');
+            }}
           />
           <Text style={{fontSize: 40}}>Right</Text>
         </View>
