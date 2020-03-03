@@ -31,8 +31,8 @@ class Home extends React.Component {
             }}>
             Recharge SUCESSFULL
           </Text>
-          <TouchableOpacity onPress={()=>navigation.navigate('Recharge')}>
-              <Text style={{fontSize:40,color:'white'}}>Go Back</Text>
+          <TouchableOpacity onPress={()=>navigation.navigate('Home')}>
+              <Text style={{fontSize:40,color:'white'}}>Logout</Text>
           </TouchableOpacity>
         </View>
 
