@@ -65,7 +65,7 @@ class ComponentAlert extends React.Component {
         <View style={[styles.child, {alignItems: 'center'}]}>
           <Text style={{fontSize: 40}}>Left</Text>
           <Button
-            title="Button"
+            title="Click to Login"
             color="#f194ff"
             backgroundColor="#f00"
             onPress={() => {
