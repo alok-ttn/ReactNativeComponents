@@ -3,7 +3,7 @@
  */
 
 import {AppRegistry} from 'react-native';
-import App from './routernavi';
+import App from './src/CustomActivityMonitor/customNavigation';
 import {name as appName} from './app.json';
 
 AppRegistry.registerComponent(appName, () => App);
