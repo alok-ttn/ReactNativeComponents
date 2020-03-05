@@ -14,7 +14,7 @@ class firstScreen extends React.Component {
     };
   }
 addString=(txt)=>{
-  this.state({
+  this.setState({
     nextScreen:txt
   })
 }
@@ -27,7 +27,7 @@ addString=(txt)=>{
     return (
       <View style={styles.container}>
         <View style={[styles.child, {backgroundColor: '#4B2875',justifyContent:'center',alignItems:'center'}]}>
-          {/* <Text
+          <Text
             style={{
               fontSize: 25,
               paddingTop: 50,
@@ -35,9 +35,9 @@ addString=(txt)=>{
               color: '#fff',
               justifyContent:'center',
             }}>
-            {text} </Text> */}
+            {text} </Text>
           <TouchableOpacity onPress={()=>navigation.navigate('Second',{newHandler:this.addString})}>
-              <Text style={{fontSize:40,color:'white'}}>proceed {text}</Text>
+              <Text style={{fontSize:40,color:'white'}}>proceed {text}{nextScreen}</Text>
           </TouchableOpacity>
           {/* <TextInput style={{height:50,width:200,backgroundColor:'red'}}
               onChangeText={(txt)=>this.setState({

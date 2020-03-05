@@ -14,28 +14,33 @@ class secondScreen extends React.Component {
       input: ' ',
     };
   }
+onChange(input){
 
+}
   render() {
     const {
       navigation,
       route 
     } = this.props;
-    
+    const { text,input}=this.state;
 
     return (
       <View style={styles.container}>
         <View style={[styles.child, {backgroundColor: '#4B2875',justifyContent:'center',alignItems:'center'}]}>
+          <TextInput style={{width:200,height:50,backgroundColor:'#f00'}} onChangeText={(txt)=>this.setState({
+            input:txt
+          })}>
+ 
+          </TextInput>
           <TouchableOpacity onPress={()=>{
-            const newHandler = route.params.completionHandler;
-            newHandler('one more step')
+            const newHandler = route.params.newHandler;
+              console.warn({input})
+            newHandler(input)
             navigation.goBack()
             // navigation.navigate('First',{data: this.passingValue()})
 
           }}>
-            <TextInput style={{width:200,height:50,backgroundColor:'#f00'}}>
-              onChangeText={input =>this.setState()}
-            </TextInput>
-              <Text style={{fontSize:40,color:'white'}}></Text>
+              <Text style={{fontSize:40,color:'white'}}>press</Text>
           </TouchableOpacity>
         </View>
 
