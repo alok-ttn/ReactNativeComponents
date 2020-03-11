@@ -103,8 +103,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#fffdd0',
     flex: 1,
     // alignItems:"flex-end",
-    justifyContent: 'center',
     justifyContent: 'space-between',
+    // justifyContent: 'space-between',
   },
   child: {
     flex: 0.15,

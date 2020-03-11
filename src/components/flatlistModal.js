@@ -127,11 +127,18 @@ class Home extends React.Component {
           renderItem={({item})=>{
               return (
              <TouchableOpacity style={[styles.elements,{width:windowWidth-20,backgroundColor:item.line9}]}
-             onPress={this.toggleModal}
+             onPress={()=>{this.toggleModal(),this.setState({text:item.line1,input:item.line2})}}
              >
-                 <Text style={{fontSize:15,flex:1}}>
+                 <View>
+                 <Text style={{fontSize:15}}>
                      {item.line1}
                  </Text>
+                 </View>
+                 <View>
+                    <Text style={{fontSize:20}}>
+                        {item.line2}
+                    </Text>
+                 </View>
 
              </TouchableOpacity>
               );
@@ -140,13 +147,13 @@ class Home extends React.Component {
           </FlatList>
           <Modal isVisible={this.state.isModalVisible}
           animationIn='slideInDown'
-          backdropOpacity='0.7'
           animationInTiming={500}
-          hasBackdrop={this.toggleModal}
+          onBackdropPress={this.toggleModal}
           >
-          <View style={{ flex: 0.2,backgroundColor:'#fff' }}>
-        <Text>{text}</Text>
-            <Button title="Proceed Next" onPress={this.toggleModal} />
+          <View style={{ flex: 0.2,backgroundColor:'#fff' ,alignItems:'center'}}>
+        <Text style={{fontSize:30,marginBottom:10}}>Item Number : {text}</Text>
+        <Text style={{fontSize:20,marginBottom:40}}>Item Name : {input}</Text>
+            <Button title="Proceed Next" onPress={()=>{this.toggleModal(),navigation.navigate('screenNext',{data:`${text}  ${input}`})}} />
           </View>
         </Modal>
       </SafeAreaView>
@@ -163,11 +170,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   elements:
-   {height:100,
+   {flex:1,
+    height:100,
     marginLeft:10,
     marginRight:20,
     borderRadius:10,
     marginBottom:20,
+    marginTop:10,
+    alignItems:'center',
     },
 
 });
