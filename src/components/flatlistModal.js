@@ -118,7 +118,7 @@ class Home extends React.Component {
     const {navigation} = this.props;
     const {input,text,offers} = this.state;
     const windowWidth = Dimensions.get('window').width;
-    const windowHeight = Dimensions.get('window').height;
+    //const windowHeight = Dimensions.get('window').height;
     return (
       <SafeAreaView style={styles.container}>
          <FlatList
@@ -130,12 +130,12 @@ class Home extends React.Component {
              onPress={()=>{this.toggleModal(),this.setState({text:item.line1,input:item.line2})}}
              >
                  <View>
-                 <Text style={{fontSize:15}}>
+                 <Text style={{fontSize:15,marginTop:10}}>
                      {item.line1}
                  </Text>
                  </View>
                  <View>
-                    <Text style={{fontSize:20}}>
+                    <Text style={{fontSize:20,marginTop:15}}>
                         {item.line2}
                     </Text>
                  </View>
@@ -153,7 +153,10 @@ class Home extends React.Component {
           <View style={{ flex: 0.2,backgroundColor:'#fff' ,alignItems:'center'}}>
         <Text style={{fontSize:30,marginBottom:10}}>Item Number : {text}</Text>
         <Text style={{fontSize:20,marginBottom:40}}>Item Name : {input}</Text>
-            <Button title="Proceed Next" onPress={()=>{this.toggleModal(),navigation.navigate('screenNext',{data:`${text}  ${input}`})}} />
+        <TouchableOpacity onPress={()=>{this.toggleModal(),navigation.navigate('screenNext',{data:`${text}  ${input}`})}}>
+                <Text style={{backgroundColor:'#a4a',fontSize:30,padding:7,borderRadius:30}}> Proceed Next</Text>
+        </TouchableOpacity>
+
           </View>
         </Modal>
       </SafeAreaView>
@@ -175,7 +178,7 @@ const styles = StyleSheet.create({
     marginLeft:10,
     marginRight:20,
     borderRadius:10,
-    marginBottom:20,
+    marginBottom:18,
     marginTop:10,
     alignItems:'center',
     },
