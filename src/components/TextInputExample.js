@@ -31,8 +31,8 @@ class Home extends React.Component {
             }}>
             Recharge SUCESSFULL
           </Text>
-          <TouchableOpacity onPress={()=>navigation.navigate('Home')}>
-              <Text style={{fontSize:40,color:'white'}}>Logout</Text>
+          <TouchableOpacity onPress={()=>navigation.navigate('FlatModal')}>
+              <Text style={{fontSize:40,color:'white'}}>Click for MODAL</Text>
           </TouchableOpacity>
         </View>
 

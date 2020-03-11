@@ -15,6 +15,7 @@ class Home extends React.Component {
   onChangeText() {}
 
   render() {
+    // eslint-disable-next-line no-unused-vars
     const {navigation} = this.props;
 
     return (
