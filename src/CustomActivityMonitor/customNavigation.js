@@ -41,7 +41,7 @@ class Home extends React.Component {
             opacity: this.state.viewOpacity,
           }}>
           <Image
-            style={{alignSelf: 'center', width: '50%'}}
+            style={{width: '50%'}}
             source={require('../CustomActivityMonitor/loader.gif')}
           />
         </View>
