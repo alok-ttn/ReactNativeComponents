@@ -5,7 +5,7 @@ import React from 'react';
 import {View, Text, StyleSheet, TextInput, Image,SafeAreaView,FlatList,Button} from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Dimensions } from 'react-native';
-import Modal from "react-native-modal";
+import Modal from 'react-native-modal';
 
 class Home extends React.Component {
   constructor(props) {
@@ -114,6 +114,11 @@ class Home extends React.Component {
   toggleModal = () => {
     this.setState({ isModalVisible: !this.state.isModalVisible });
   };
+  onPress=(item)=>{
+    this.setState({text:item.line1,
+      input:item.line2,
+      isModalVisible:true});}
+
   render() {
     const {navigation} = this.props;
     const {input,text,offers} = this.state;
@@ -126,9 +131,8 @@ class Home extends React.Component {
           data={offers}
           renderItem={({item})=>{
               return (
-             <TouchableOpacity style={[styles.elements,{width:windowWidth-20,backgroundColor:item.line9}]}
-             onPress={()=>{this.toggleModal(),this.setState({text:item.line1,input:item.line2})}}
-             >
+             <TouchableOpacity style={[styles.elements,{backgroundColor:item.line9}]}
+               onPress={()=>{this.onPress(item);}}       >
                  <View>
                  <Text style={{fontSize:15,marginTop:10}}>
                      {item.line1}
@@ -146,14 +150,15 @@ class Home extends React.Component {
 
           </FlatList>
           <Modal isVisible={this.state.isModalVisible}
-          animationIn='slideInDown'
+          animationIn="slideInDown"
           animationInTiming={500}
+          hasBackdrop={true}
           onBackdropPress={this.toggleModal}
           >
           <View style={{ flex: 0.2,backgroundColor:'#fff' ,alignItems:'center'}}>
         <Text style={{fontSize:30,marginBottom:10}}>Item Number : {text}</Text>
         <Text style={{fontSize:20,marginBottom:40}}>Item Name : {input}</Text>
-        <TouchableOpacity onPress={()=>{this.toggleModal(),navigation.navigate('screenNext',{data:`${text}  ${input}`})}}>
+        <TouchableOpacity onPress={()=>{this.toggleModal(),navigation.navigate('screenNext',{data:`${text}  ${input}`});}}>
                 <Text style={{backgroundColor:'#a4a',fontSize:30,padding:7,borderRadius:30}}> Proceed Next</Text>
         </TouchableOpacity>
 
@@ -175,10 +180,9 @@ const styles = StyleSheet.create({
   elements:
    {flex:1,
     height:100,
-    marginLeft:10,
-    marginRight:20,
     borderRadius:10,
     marginBottom:18,
+    marginHorizontal:20,
     marginTop:10,
     alignItems:'center',
     },
